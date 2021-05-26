@@ -8,44 +8,44 @@
 import Foundation
 import HandyJSON
 
-class PageData : HandyJSON {
+public class PageData : HandyJSON {
     
-    var count : Int?
-    var limit : Int?
-    var current : Int?
-    var page_count : Int?
+    public var count : Int?
+    public var limit : Int?
+    public var current : Int?
+    public var page_count : Int?
 
-    required init() {
+    public required init() {
         
     }
 }
 
-class BaseResponse : HandyJSON {
+public class BaseResponse : HandyJSON {
     
-    var code : Int?
-    var data : Any?
-    var message : String?
-    var page : PageData?
+    public var code : Int?
+    public var data : Any?
+    public var message : String?
+    public var page : PageData?
 
-    required init(){
+    public required init(){
         
     }
 }
 
-class Response<T: HandyJSON > : HandyJSON {
+public class Response<T: HandyJSON > : HandyJSON {
         
-    var item : T?
-    var items : [T?]?
-    var code : Int?
-    var data : Any?
-    var message : String?
-    var page : PageData?
+    public var item : T?
+    public var items : [T?]?
+    public var code : Int?
+    public var data : Any?
+    public var message : String?
+    public var page : PageData?
     
-    required init(){
+    public required init(){
         
     }
     
-    required init(baseResponse : BaseResponse){
+    public required init(baseResponse : BaseResponse){
         self.code = baseResponse.code
         self.message = baseResponse.message
         self.data = baseResponse.data
@@ -55,7 +55,7 @@ class Response<T: HandyJSON > : HandyJSON {
 
 class DataJSON : HandyJSON {
     
-    required init() {
+    public required init() {
         
     }
 }

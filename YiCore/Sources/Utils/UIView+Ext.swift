@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-extension UIView {
+public extension UIView {
     
     func safeBottom() -> ConstraintItem {
         
@@ -50,7 +50,7 @@ extension UIView {
     
 }
 
-extension UIView {
+public extension UIView {
     
     struct Keys {
         

@@ -12,7 +12,7 @@ import HandyJSON
 import Alamofire
 
 
-struct WrapCollectionCell{
+public struct WrapCollectionCell{
 
     var reuseId : String
     var isNib : Bool
@@ -20,7 +20,7 @@ struct WrapCollectionCell{
     var nib : String?
 }
 
-protocol CellProtocol {
+public protocol CellProtocol {
     
     associatedtype CollectionItem
     
@@ -34,16 +34,16 @@ protocol CellProtocol {
     
 }
 
-protocol CollectionResiteryProxy {
+public protocol CollectionResiteryProxy {
     
     func registerCells() -> [WrapCollectionCell]
 }
 
-class SNCollectionCell: UICollectionViewCell {
+public class SNCollectionCell: UICollectionViewCell {
     
 }
 
-class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource  where CellProtocolType : CellProtocol {
+public class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource  where CellProtocolType : CellProtocol {
 
     private var headerFreshView : CRRefreshHeaderView?
     private var footerFreshView : CRRefreshFooterView?
@@ -53,7 +53,7 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         
     private  var cellProtocol : CellProtocolType?
     
-    var headerState : RefreshState = .none {
+    public var headerState : RefreshState = .none {
         
         didSet {
             switch self.headerState {
@@ -67,7 +67,7 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         }
     }
     
-    var footerState : RefreshState = .none  {
+    public var footerState : RefreshState = .none  {
         
         didSet {
             switch self.footerState {
@@ -81,7 +81,7 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         }
     }
     
-    func setup(_ provider : CollectionResiteryProxy?, presenter : SNPageDataPresenter<T>? = nil, cellProtocol : CellProtocolType? = nil) {
+    public func setup(_ provider : CollectionResiteryProxy?, presenter : SNPageDataPresenter<T>? = nil, cellProtocol : CellProtocolType? = nil) {
         
         self.backgroundColor = .pageBgColor
         
@@ -125,7 +125,7 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
 //        self.reloadData()
     }
     
-    func refresh() {
+    public func refresh() {
         self.presenter?.refresh().done({ () in
             
         }).catch({ (err) in
@@ -136,7 +136,7 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         }
     }
     
-    func loadMore() {
+    public func loadMore() {
         self.presenter?.loadMore().done({ () in
             
         }).catch({ (err) in
@@ -146,12 +146,12 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return self.presenter?.items?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let item : T = (self.presenter?.items?[indexPath.row])!
         let reuseId = self.cellProtocol?.getReuseID(item: item as! CellProtocolType.CollectionItem)
@@ -160,13 +160,13 @@ class SNCollectionView < T : SNCellDataProtocol, CellProtocolType > : UICollecti
         return cell
     }
         
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let item : T = (self.presenter?.items?[indexPath.row])!
         self.cellProtocol?.didSelectRow(item: item as! CellProtocolType.CollectionItem )
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let item : T = (self.presenter?.items?[indexPath.row])!
         let size = self.cellProtocol?.sizeForItem(item: item as! CellProtocolType.CollectionItem)

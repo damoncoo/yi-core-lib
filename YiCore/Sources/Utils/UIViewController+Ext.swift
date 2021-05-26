@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     static func visibleNavigationController() -> UINavigationController? {
         

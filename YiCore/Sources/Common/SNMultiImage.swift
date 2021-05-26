@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SNMultiImage {
+public protocol SNMultiImage {
     
     func image() -> UIImage
 }

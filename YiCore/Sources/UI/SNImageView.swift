@@ -7,12 +7,12 @@
 
 import UIKit
 
-struct SNImage : SNMultiImage {
+public struct SNImage : SNMultiImage {
     
-    var normalImage : UIImage
-    var darkImage : UIImage?
+    public var normalImage : UIImage
+    public var darkImage : UIImage?
     
-    func image() -> UIImage {
+    public func image() -> UIImage {
         if #available(iOS 13.0, *) {
             let dark = UITraitCollection.current.userInterfaceStyle == .dark
             if dark {
@@ -23,16 +23,16 @@ struct SNImage : SNMultiImage {
     }
 }
 
-class SNImageView: UIImageView {
+public class SNImageView: UIImageView {
         
-    var snImage : SNMultiImage! {
+    public var snImage : SNMultiImage! {
         
         didSet {
             self.updateImage()
         }
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         self.updateImage()
     }
@@ -42,15 +42,15 @@ class SNImageView: UIImageView {
     }
 }
 
-class SNButton: UIButton {
+public class SNButton: UIButton {
         
-    var snImage : SNMultiImage! {
+    public var snImage : SNMultiImage! {
         didSet {
             self.updateImage()
         }
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         self.updateImage()
     }

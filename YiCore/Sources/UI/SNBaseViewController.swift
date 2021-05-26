@@ -7,28 +7,28 @@
 
 import UIKit
 
-class SNBaseViewController: UIViewController {
+public class SNBaseViewController: UIViewController {
 
     deinit {
         print("\(self) init")
     }
     
     var hideNavigationBar : Bool = false
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.pageBgColor
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public  override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
     }
     
-    func validate(data: Dictionary<String, Any>?) -> Self? {
+    public func validate(data: Dictionary<String, Any>?) -> Self? {
     
         return self
     }

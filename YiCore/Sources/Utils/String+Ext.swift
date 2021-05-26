@@ -9,7 +9,7 @@ import Foundation
 import CommonCrypto
 import SwifterSwift
 
-extension String {
+public extension String {
     
     static func themeStr() -> String {
         return "#4A90E2"

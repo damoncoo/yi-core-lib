@@ -11,26 +11,26 @@ import PromiseKit
 import HandyJSON
 import Alamofire
 
-protocol SNCellDataProtocol : HandyJSON {  }
+public protocol SNCellDataProtocol : HandyJSON {  }
 
-protocol SNPageDataProxy {
+public protocol SNPageDataProxy {
     
     func refresh() -> Promise<Void>
     func loadMore() -> Promise<Void>
     var hasMore : Bool { get }
 }
 
-class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
+public class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
     
     var page : Int16 = 1
     var limit : Int16 = 10
-    var hasMore : Bool = false
+    public var hasMore : Bool = false
     
     var items : [T?]?
     var item : T?
     
     @discardableResult
-    func refresh() -> Promise<Void> {
+    public func refresh() -> Promise<Void> {
         self.page = 1
         
         return firstly { self.fetchItems() }
@@ -40,7 +40,7 @@ class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
     }
     
     @discardableResult
-    func loadMore() -> Promise<Void> {
+    public func loadMore() -> Promise<Void> {
         
         return firstly { fetchMoreItems() }.done { [weak self] (res) in
             
@@ -51,7 +51,7 @@ class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
         }
     }
     
-    func fetchItems() -> Promise<Response<T>> {
+    public func fetchItems() -> Promise<Response<T>> {
         return Promise<Response<T>> { p in
             
             let promise =  ApiClient.shared.R2(request: self.makeRequest()!) as Promise<Response<T>>
@@ -70,30 +70,30 @@ class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
         }
     }
     
-    func fetchMoreItems() -> Promise<Response<T>> {
+    public func fetchMoreItems() -> Promise<Response<T>> {
         
         return self.fetchItems()
     }
     
-    func makeRequest() -> DataRequest? {
+    public func makeRequest() -> DataRequest? {
         
         return nil
     }
 }
 
-protocol ResiteryProxy {
+public protocol ResiteryProxy {
     
     func registerCells() -> [WrapTableCell]
 }
 
-class SNTableView: UITableView {
+public class SNTableView: UITableView {
     
     var headerFreshView : CRRefreshHeaderView?
     var footerFreshView : CRRefreshFooterView?
     var provider : ResiteryProxy?
     var presenter : SNPageDataProxy?
     
-    var headerState : RefreshState = .none {
+    public var headerState : RefreshState = .none {
         
         didSet {
             switch self.headerState {
@@ -107,7 +107,7 @@ class SNTableView: UITableView {
         }
         
     }
-    var footerState : RefreshState = .none  {
+    public var footerState : RefreshState = .none  {
         
         didSet {
             switch self.footerState {
@@ -121,7 +121,7 @@ class SNTableView: UITableView {
         }
     }
     
-    func setup(_ provider : ResiteryProxy?) {
+    public func setup(_ provider : ResiteryProxy?) {
         
         self.provider = provider
         self.headerFreshView = self.cr.addHeadRefresh(animator: SlackLoadingAnimator()) { [weak self] in
@@ -144,7 +144,7 @@ class SNTableView: UITableView {
         }
     }
     
-    func refresh() {
+    public func refresh() {
         self.presenter?.refresh().done({ () in
             
         }).catch({ (err) in
@@ -155,7 +155,7 @@ class SNTableView: UITableView {
         }
     }
     
-    func loadMore() {
+    public func loadMore() {
         self.presenter?.loadMore().done({ () in
             
         }).catch({ (err) in
@@ -167,7 +167,7 @@ class SNTableView: UITableView {
     
 }
 
-extension UITableViewCell {
+public extension UITableViewCell {
     
     static func blankCell() -> UITableViewCell {
         let cell = UITableViewCell()
@@ -179,7 +179,7 @@ extension UITableViewCell {
 }
 
 
-extension UIScrollView {
+public extension UIScrollView {
     
     func scrollToValidBottom(animated : Bool = true) {
         
@@ -194,7 +194,7 @@ extension UIScrollView {
 }
 
 
-class SNBaseTableViewCell: UITableViewCell {
+public class SNBaseTableViewCell: UITableViewCell {
     
     
 }

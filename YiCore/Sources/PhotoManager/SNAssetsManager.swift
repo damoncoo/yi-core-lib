@@ -19,7 +19,7 @@ class SNAssets: NSObject {
 
 extension YPMediaPhoto : SNMultiImage {
 
-    func image() -> UIImage {
+    public func image() -> UIImage {
         return self.image
     }
 }
@@ -31,7 +31,7 @@ protocol DataProtocol {
 
 extension UIImage : DataProtocol {
     
-    func toData() -> Data? {
+    public func toData() -> Data? {
         let compression : CGFloat = 0.75
         return self.compressedData(quality: compression)
     }
@@ -39,7 +39,7 @@ extension UIImage : DataProtocol {
 
 extension Data : DataProtocol {
     
-    func toData() -> Data? {
+    public func toData() -> Data? {
         return self
     }
 }
@@ -60,11 +60,11 @@ class SNAssetsManager : NSObject {
         self.qiniuManager = QNUploadManager(configuration: self.qiniuConf)
     }
     
-    func initWithProvider(prodider : QiniuTokenProtocol)  {
+    public func initWithProvider(prodider : QiniuTokenProtocol)  {
         self.tokenProvider = prodider
     }
             
-    func showImagePicker(count : Int = 1 ,video : Bool = false, maxWidth : CGFloat = 1024) -> Promise<SNAssets>  {
+    public func showImagePicker(count : Int = 1 ,video : Bool = false, maxWidth : CGFloat = 1024) -> Promise<SNAssets>  {
         
         let promise = Promise<SNAssets> {p in
             
@@ -102,7 +102,7 @@ class SNAssetsManager : NSObject {
     }
     
     
-    func upload(images : [DataProtocol], progress : ( Float)? ) -> Promise<Array<String>> {
+    public func upload(images : [DataProtocol], progress : ( Float)? ) -> Promise<Array<String>> {
         
         return firstly {
             self.tokenProvider.getToken()
@@ -111,7 +111,7 @@ class SNAssetsManager : NSObject {
         }
     }
         
-    func uploadImage(images : [DataProtocol], token : QiniuToken, progress : ( Float)?) -> Promise<Array<String>> {
+    public func uploadImage(images : [DataProtocol], token : QiniuToken, progress : ( Float)?) -> Promise<Array<String>> {
         
         let promises = images.map { (image) -> Promise<String> in
             return Promise<String> { [unowned self]  p in

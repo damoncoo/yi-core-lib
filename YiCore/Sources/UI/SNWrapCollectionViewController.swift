@@ -8,9 +8,9 @@
 import UIKit
 import HandyJSON
 
-class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewController, CellProtocol, CollectionResiteryProxy  {
+public class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewController, CellProtocol, CollectionResiteryProxy  {
   
-    typealias CollectionItem = T
+    public typealias CollectionItem = T
 
     public var presenter : SNPageDataPresenter<T>? = nil
     
@@ -18,7 +18,7 @@ class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewCont
 
     public var collectionView : SNCollectionView<T, SNWrapCollectionViewController >!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
         self.collectionView.reloadData()
@@ -48,23 +48,23 @@ class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewCont
         self.afterSetup()
     }
     
-    func fillWithData(item: T, cell: SNCollectionCell) {
+    public func fillWithData(item: T, cell: SNCollectionCell) {
         
     }
 
-    func getReuseID(item: T) -> String {
+    public func getReuseID(item: T) -> String {
         return ""
     }
     
-    func sizeForItem(item: T) -> CGSize {
+    public func sizeForItem(item: T) -> CGSize {
         return CGSize.init(width: 100, height: 100)
     }
     
-    func didSelectRow(item: T) {
+    public func didSelectRow(item: T) {
         
     }
 
-    func registerCells() -> [WrapCollectionCell] {
+    public func registerCells() -> [WrapCollectionCell] {
         return [
             WrapCollectionCell
         ]()

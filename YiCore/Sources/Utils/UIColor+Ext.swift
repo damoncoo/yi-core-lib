@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwifterSwift
 
-extension UIColor {
+public extension UIColor {
     
     static var themeColor : UIColor {
         return UIColor.dynamicColor(color1: UIColor(hexString: String.themeStr())!, color2: UIColor(hexString: "#191919")!)

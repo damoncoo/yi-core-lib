@@ -14,13 +14,13 @@ import Alamofire
 import HandyJSON
 import SwifterSwift
 
-enum RefreshState {
+public enum RefreshState {
     case none
     case refreshing
     case enable(enabled : Bool)
 }
 
-struct WrapTableCell{
+public struct WrapTableCell{
 
     var reuseId : String
     var isNib : Bool
@@ -28,11 +28,11 @@ struct WrapTableCell{
     var nib : String?
 }
 
-struct WrapMpdel <T> {
+public struct WrapMpdel <T> {
     var items : [T]
 }
 
-protocol WrapTableViewProtocol : class {
+public protocol WrapTableViewProtocol : class {
     
     func makeRequest(page : NSInteger, limit : NSInteger) -> DataRequest?
     
@@ -46,7 +46,7 @@ protocol WrapTableViewProtocol : class {
     
 }
 
-class SNTableViewInfo<T : HandyJSON >: NSObject {
+public class SNTableViewInfo<T : HandyJSON >: NSObject {
     
     weak var tableView : UITableView?
     weak var provider : WrapTableViewProtocol?
@@ -200,7 +200,7 @@ class SNTableViewInfo<T : HandyJSON >: NSObject {
     }
 }
 
-class SNBaseTableViewController: UITableViewController, RouteFatory {
+public class SNBaseTableViewController: UITableViewController, RouteFatory {
     
     static func initWithData(data: Dictionary<String, Any>?) -> UIViewController? {
         return self.init().validate(data: data)
@@ -216,7 +216,7 @@ class SNBaseTableViewController: UITableViewController, RouteFatory {
         print("\(self) deint")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
 
         super.viewDidLoad()
         self.tableView.separatorColor = .sepColor
@@ -228,35 +228,35 @@ class SNBaseTableViewController: UITableViewController, RouteFatory {
         UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
     }
     
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
 
         return 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return  0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         return  UITableViewCell()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 }
 
 
-class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapTableViewProtocol {
+public class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapTableViewProtocol {
 
     var tableViewInfo : SNTableViewInfo<T>?
     var refreshState = RefreshState.none
@@ -269,7 +269,7 @@ class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapT
         self.tableView.cr.endLoadingMore()
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableViewInfo = SNTableViewInfo(tableView: self.tableView, provider: self)
@@ -281,34 +281,34 @@ class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapT
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
     }
             
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
 
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.tableViewInfo?.items?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let item = self.tableViewInfo?.items?[indexPath.row]
         return self.cellForItemIn(item: item!, indexPath: indexPath)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let item = self.tableViewInfo?.items?[indexPath.row]
         return self.heightForItemIn(item: item!)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.tableViewInfo?.items?[indexPath.row]
         self.didSelectRow(item: item!)
     }
@@ -325,31 +325,31 @@ class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapT
         
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     // MARK: WrapTableViewProtocol
-    func registerCells() -> [WrapTableCell] {
+    public func registerCells() -> [WrapTableCell] {
         return []
     }
     
-    func makeRequest(page : NSInteger, limit : NSInteger) -> DataRequest? {
+    public func makeRequest(page : NSInteger, limit : NSInteger) -> DataRequest? {
         return nil
     }
     
-    func datamodel() -> WrapMpdel<Any>? {
+    public func datamodel() -> WrapMpdel<Any>? {
         
         return nil
     }
     
-    func onDataFreshBefore() {
+    public func onDataFreshBefore() {
 
         self.tableViewInfo?.refresh()
         self.view.showLoading()
     }
     
-    func onDataFresh() {
+    public func onDataFresh() {
         
         self.tableView.reloadData()
         self.view.stopLoading()
