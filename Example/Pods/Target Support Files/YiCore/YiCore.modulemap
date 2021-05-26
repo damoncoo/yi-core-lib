@@ -1,0 +1,6 @@
+framework module YiCore {
+  umbrella header "YiCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YiCore
 
 class ViewController: UIViewController {
 

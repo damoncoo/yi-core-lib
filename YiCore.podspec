@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Be sure to run `pod lib lint YiCore.podspec' to ensure this is a
 # valid spec before submitting.
@@ -9,34 +11,43 @@
 Pod::Spec.new do |s|
   s.name             = 'YiCore'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of YiCore.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'YiCore is a suite of tools for Yi app.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  YiCore is a suite of tools for Yi app.
+  It is useful for all apps
+  DESC
 
-  s.homepage         = 'https://github.com/damoncoo@gmail.com/YiCore'
+  s.homepage         = 'https://github.com/damoncoo/yi-core-lib'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'damoncoo@gmail.com' => 'damoncoo@gmail.com' }
-  s.source           = { :git => 'https://github.com/damoncoo@gmail.com/YiCore.git', :tag => s.version.to_s }
+  s.license          = { type: 'MIT', file: 'LICENSE' }
+  s.author           = { 'Damon Cheng' => 'damoncoo@gmail.com' }
+  s.source           = { git: 'https://github.com/damoncoo/yi-core-lib.git', tag: s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
-  s.source_files = 'YiCore/Classes/**/*'
-  
+  s.source_files = 'YiCore/Sources/**/*'
+
   # s.resource_bundles = {
   #   'YiCore' => ['YiCore/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'Foundation', 'QuartzCore', 'UIKit'
+  s.dependency 'YPImagePicker'
+  s.dependency 'SnapKit', '~> 5.0.0'
+  s.dependency 'PromiseKit', '~> 6.8'
+  s.dependency 'RxSwift', '~> 5.1.1'
+  s.dependency 'RxCocoa', '~> 5.1.1'
+  s.dependency 'Kingfisher'
+  s.dependency 'HandyJSON', '~> 5.0.2'
+  s.dependency 'Alamofire', '~> 5.4.0'
+  s.dependency 'SwCrypt'
+  s.dependency 'SwiftyRSA'
+  s.dependency 'Qiniu', '~> 8.1.0'
+  s.dependency 'Swifter', '~> 1.5.0'
+  s.dependency 'CRRefresh', '~> 1.1.3'
+  s.dependency 'SwifterSwift'
+  s.dependency 'SwiftDate', '~> 6.2.0'
 end
