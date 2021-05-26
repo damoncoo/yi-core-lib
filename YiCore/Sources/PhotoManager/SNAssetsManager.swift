@@ -11,7 +11,7 @@ import PromiseKit
 import HandyJSON
 import Qiniu
 
-class SNAssets: NSObject {
+public class SNAssets: NSObject {
     
     public var phtos  = [YPMediaPhoto]()
     public var videos  = [YPMediaVideo]()
@@ -24,7 +24,7 @@ extension YPMediaPhoto : SNMultiImage {
     }
 }
 
-protocol DataProtocol {
+public protocol DataProtocol {
     
     func toData() -> Data?
 }
@@ -44,7 +44,7 @@ extension Data : DataProtocol {
     }
 }
 
-class SNAssetsManager : NSObject {
+public class SNAssetsManager : NSObject {
             
     public static let shared = SNAssetsManager()
     

@@ -9,14 +9,14 @@ import Foundation
 import HandyJSON
 import PromiseKit
 
-class QiniuToken : HandyJSON {
+public class QiniuToken : HandyJSON {
     var token : String!
     var bucket : String!
 
-    required init() {}
+    public required init() {}
 }
 
-protocol QiniuTokenProtocol : class {
+public protocol QiniuTokenProtocol : class {
     
     func getToken() -> Promise<QiniuToken>    
 }

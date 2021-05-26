@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum SNError: Error {
+public enum SNError: Error {
     
     case commonError(String)
     
-    static func errorMessage(err : Error, defaultStr: String) -> String {
+    public static func errorMessage(err : Error, defaultStr: String) -> String {
         
         var msg = defaultStr
         if case let SNError.commonError(message) = err {
@@ -22,7 +22,7 @@ enum SNError: Error {
 }
 
 
-enum LoginError : Error {
+public enum LoginError : Error {
     
     
 }

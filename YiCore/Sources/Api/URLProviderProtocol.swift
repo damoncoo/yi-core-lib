@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol URLProviderProtocol : class {
+public protocol URLProviderProtocol : class {
     func baseUrl() -> String
     func setBaseURL(url : String)
 }

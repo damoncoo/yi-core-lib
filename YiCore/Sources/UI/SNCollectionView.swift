@@ -18,6 +18,14 @@ public struct WrapCollectionCell{
     var isNib : Bool
     var type : UICollectionViewCell.Type
     var nib : String?
+    
+    public init(reuseId : String, isNib : Bool, type : UICollectionViewCell.Type,nib : String? ) {
+        self.reuseId = reuseId
+        self.isNib = isNib
+        self.type = type
+        self.nib = nib
+    }
+    
 }
 
 public protocol CellProtocol {
@@ -39,7 +47,7 @@ public protocol CollectionResiteryProxy {
     func registerCells() -> [WrapCollectionCell]
 }
 
-public class SNCollectionCell: UICollectionViewCell {
+open class SNCollectionCell: UICollectionViewCell {
     
 }
 

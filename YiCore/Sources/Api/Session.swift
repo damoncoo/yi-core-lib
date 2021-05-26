@@ -13,7 +13,7 @@ import CryptoKit
 import SwCrypt
 import SwiftyRSA
 
-class ApiURL: URLConvertible {
+public class ApiURL: URLConvertible {
     
     var base, path: String
     
@@ -22,23 +22,23 @@ class ApiURL: URLConvertible {
         self.path = path
     }
     
-    func asURL() throws -> URL {
+    public func asURL() throws -> URL {
         return URL(string: self.base + self.path)!
     }
 }
 
 
-protocol ResponseAdapter {
+public protocol ResponseAdapter {
     
     func adaptResponse(data : Data?) -> Request.ValidationResult
 }
 
-protocol ResponseHooker {
+public protocol ResponseHooker {
     
     func adaptResponse(response : BaseResponse?)
 }
 
-class ApiSession : NSObject {
+public class ApiSession : NSObject {
                 
     class InternalSession : Alamofire.Session {
         
@@ -56,9 +56,9 @@ class ApiSession : NSObject {
     
     private let responseAdapter : ResponseAdapter?
     
-    private var responseHooker : ResponseHooker?
+    public var responseHooker : ResponseHooker?
     
-    init( baseUrlAdapter : URLProviderProtocol,
+    public init( baseUrlAdapter : URLProviderProtocol,
           requestAdapter: Interceptor? = nil,
           responseAdapter: ResponseAdapter? = nil) {
          
@@ -84,7 +84,7 @@ class ApiSession : NSObject {
     }
     
     
-    func useReponseHooker(hooker : ResponseHooker)  {
+    public func useReponseHooker(hooker : ResponseHooker)  {
         self.responseHooker = hooker
     }
     
@@ -123,7 +123,7 @@ class ApiSession : NSObject {
     }
     
     // 不需要解析请求的时候调用
-    func request(request : DataRequest) -> Promise<BaseResponse>  {
+    public func request(request : DataRequest) -> Promise<BaseResponse>  {
         
         return Promise<BaseResponse>{ p in
                         
@@ -158,7 +158,7 @@ class ApiSession : NSObject {
         }
     }
     
-    func makeRequest(path: String, method: HTTPMethod, data : Parameters?) -> DataRequest  {
+    public func makeRequest(path: String, method: HTTPMethod, data : Parameters?) -> DataRequest  {
         
         var encoding : ParameterEncoding = URLEncoding.default
         if !(method == .get || method == .delete) {

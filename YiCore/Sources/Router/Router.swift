@@ -8,18 +8,22 @@
 import Foundation
 import UIKit
 
-protocol RouteFatory  {
+public protocol RouteFatory  {
     
    static func initWithData(data: Dictionary<String, Any>?) -> UIViewController?
 }
 
-class SNRouteViewController : SNBaseViewController, RouteFatory {
+open class SNRouteViewController : SNBaseViewController, RouteFatory {
 
     deinit {
         
     }
     
-    static func initWithData(data: Dictionary<String, Any>?) -> UIViewController? {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    public static func initWithData(data: Dictionary<String, Any>?) -> UIViewController? {
         
         let vc = self.init()
         return vc.validate(data: data)
@@ -27,7 +31,7 @@ class SNRouteViewController : SNBaseViewController, RouteFatory {
 }
 
 
-class SNRouter : NSObject {
+public class SNRouter : NSObject {
     
     public static var defalut = SNRouter()
         
@@ -37,12 +41,12 @@ class SNRouter : NSObject {
         super.init()
     }
         
-    func registerPage (path: String, for aClass: RouteFatory.Type)   {
+    public func registerPage (path: String, for aClass: RouteFatory.Type)   {
         self.dataMap[path] = aClass
     }
     
     @discardableResult
-    func routePage(page : String, for data: Dictionary<String, Any>?) -> Bool {
+    public func routePage(page : String, for data: Dictionary<String, Any>?) -> Bool {
         let r = self.dataMap[page]
         if r != nil {
             let type = r!.self

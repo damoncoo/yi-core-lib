@@ -20,13 +20,13 @@ public protocol SNPageDataProxy {
     var hasMore : Bool { get }
 }
 
-public class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
+open class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
     
-    var page : Int16 = 1
-    var limit : Int16 = 10
+    public var page : Int16 = 1
+    public var limit : Int16 = 10
     public var hasMore : Bool = false
     
-    var items : [T?]?
+    public var items : [T?]?
     var item : T?
     
     @discardableResult
@@ -75,7 +75,7 @@ public class SNPageDataPresenter<T : HandyJSON>: NSObject, SNPageDataProxy {
         return self.fetchItems()
     }
     
-    public func makeRequest() -> DataRequest? {
+    open func makeRequest() -> DataRequest? {
         
         return nil
     }
@@ -91,7 +91,7 @@ public class SNTableView: UITableView {
     var headerFreshView : CRRefreshHeaderView?
     var footerFreshView : CRRefreshFooterView?
     var provider : ResiteryProxy?
-    var presenter : SNPageDataProxy?
+    public var presenter : SNPageDataProxy?
     
     public var headerState : RefreshState = .none {
         
@@ -194,7 +194,7 @@ public extension UIScrollView {
 }
 
 
-public class SNBaseTableViewCell: UITableViewCell {
+open class SNBaseTableViewCell: UITableViewCell {
     
     
 }

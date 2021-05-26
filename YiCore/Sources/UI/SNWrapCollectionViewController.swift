@@ -8,7 +8,7 @@
 import UIKit
 import HandyJSON
 
-public class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewController, CellProtocol, CollectionResiteryProxy  {
+open class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseViewController, CellProtocol, CollectionResiteryProxy  {
   
     public typealias CollectionItem = T
 

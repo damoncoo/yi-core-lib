@@ -8,9 +8,14 @@
 import UIKit
 
 public struct SNImage : SNMultiImage {
-    
+        
     public var normalImage : UIImage
     public var darkImage : UIImage?
+    
+    public init(normalImage : UIImage, darkImage : UIImage?) {
+        self.normalImage = normalImage
+        self.darkImage = darkImage
+    }
     
     public func image() -> UIImage {
         if #available(iOS 13.0, *) {
@@ -25,6 +30,14 @@ public struct SNImage : SNMultiImage {
 
 public class SNImageView: UIImageView {
         
+    public init() {
+        super.init(frame: CGRect.zero)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public var snImage : SNMultiImage! {
         
         didSet {
@@ -44,6 +57,14 @@ public class SNImageView: UIImageView {
 
 public class SNButton: UIButton {
         
+    public init() {
+        super.init(frame: CGRect.zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public var snImage : SNMultiImage! {
         didSet {
             self.updateImage()

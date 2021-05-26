@@ -61,7 +61,7 @@ public extension String {
 
 extension Data {
     
-    func toString() -> String? {
+    public func toString() -> String? {
         return String(data: self, encoding: String.Encoding.utf8)
     }
 }
@@ -75,7 +75,7 @@ extension NSRegularExpression {
         return res.count > 0
     }
     
-    func matchedString(content : String) -> String? {
+    public func matchedString(content : String) -> String? {
         
         let match = self.firstMatch(in: content, options: .withTransparentBounds, range: NSMakeRange(0, content.count))
         if match != nil {
@@ -84,13 +84,13 @@ extension NSRegularExpression {
         return nil
     }
     
-    static func isValidEmail(email : String) -> Bool {
+    public static func isValidEmail(email : String) -> Bool {
         
         let regexp = try! "^[a-zA-Z0-9][a-z0-9A-Z_-]+@([a-z0-9A-Z]+([-]?[a-z0-9A-Z]+)*\\.)+([a-zA-Z]){2,}$".regexp()
         return regexp.isMatch(text: email)
     }
     
-    static func isValidPhone(phone : String) -> Bool {
+    public static func isValidPhone(phone : String) -> Bool {
         
         let regexp = try! "^1[0-9]{10}$".regexp()
         return regexp.isMatch(text: phone)

@@ -7,14 +7,14 @@
 
 import UIKit
 
-public class SNBaseViewController: UIViewController {
+open class SNBaseViewController: UIViewController {
 
     deinit {
         print("\(self) init")
     }
     
-    var hideNavigationBar : Bool = false
-    public override func viewDidLoad() {
+    public var hideNavigationBar : Bool = false
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.pageBgColor
     }
@@ -28,7 +28,7 @@ public class SNBaseViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
     }
     
-    public func validate(data: Dictionary<String, Any>?) -> Self? {
+    open func validate(data: Dictionary<String, Any>?) -> Self? {
     
         return self
     }

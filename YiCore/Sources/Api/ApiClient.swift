@@ -21,25 +21,25 @@ protocol SessionRequestProtocol {
 
 public class ApiClient : SessionRequestProtocol {
     
-    private var session : ApiSession!
+    public var session : ApiSession!
     
     public static let shared = ApiClient()
 
-    func registerSession(session : ApiSession)  {
+    public func useSession(session : ApiSession)  {
         self.session = session
     }
     
-    func makeRequest(path: String, method: HTTPMethod, data: Parameters?) -> DataRequest {
+    public func makeRequest(path: String, method: HTTPMethod, data: Parameters?) -> DataRequest {
         
         self.session.makeRequest(path: path, method: method, data: data)
     }
     
-    func R<E>(path: String, method: HTTPMethod, data: Parameters?) -> Promise<Response<E>> where E : HandyJSON {
+    public func R<E>(path: String, method: HTTPMethod, data: Parameters?) -> Promise<Response<E>> where E : HandyJSON {
      
         self.session.R(path: path, method: method, data: data)
     }
     
-    func R2<E>(request: DataRequest) -> Promise<Response<E>> where E : HandyJSON {
+    public func R2<E>(request: DataRequest) -> Promise<Response<E>> where E : HandyJSON {
         
         self.session.R2(request: request)
     }
