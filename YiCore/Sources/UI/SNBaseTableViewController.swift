@@ -272,9 +272,9 @@ open class SNBaseTableViewController: UITableViewController, RouteFatory {
 
 open class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, WrapTableViewProtocol {
 
-    var tableViewInfo : SNTableViewInfo<T>?
-    var refreshState = RefreshState.none
-    var inifiteState = RefreshState.none
+    public var tableViewInfo : SNTableViewInfo<T>?
+    public var refreshState = RefreshState.none
+    public var inifiteState = RefreshState.none
     
     public var disposeBag = DisposeBag()
         
