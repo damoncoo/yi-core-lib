@@ -74,7 +74,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
     var headerFreshView : CRRefreshHeaderView?
     var footerFreshView : CRRefreshFooterView?
     
-    var headerState : RefreshState = .none {
+    public var headerState : RefreshState = .none {
         
         didSet {
             switch self.headerState {
@@ -88,7 +88,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         }
         
     }
-    var footerState : RefreshState = .none  {
+    public var footerState : RefreshState = .none  {
         
         didSet {
             switch self.footerState {
@@ -150,7 +150,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         }
     }
         
-    func refresh() {
+    public func refresh() {
         self.page = 1
         
         firstly {
@@ -166,7 +166,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         }
     }
     
-    func loadMore() {
+    public func loadMore() {
         firstly {
             fetchMoreItems()
         }.done {  (res) in
@@ -207,7 +207,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         return self.fetchItems()
     }
     
-    func reload() {
+    public func reload() {
         self.wrapModel = self.provider?.datamodel()
         self.tableView?.reloadData()
     }
