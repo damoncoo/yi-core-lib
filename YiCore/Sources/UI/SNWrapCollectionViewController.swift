@@ -24,11 +24,11 @@ open class SNWrapCollectionViewController < T : SNCellDataProtocol > : SNBaseVie
         self.collectionView.reloadData()
     }
     
-    func beforeSetup() {
+    public func beforeSetup() {
         
     }
     
-    func afterSetup() {
+    public func afterSetup() {
         
     }
     
