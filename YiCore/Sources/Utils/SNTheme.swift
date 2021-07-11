@@ -18,7 +18,7 @@ public class SNTheme {
     public static let `default` = SNTheme()
     var theme = Themes.imovie
 
-    func apply(theme: Themes)  {
+    public func apply(theme: Themes)  {
         self.theme = theme
     }
 }
