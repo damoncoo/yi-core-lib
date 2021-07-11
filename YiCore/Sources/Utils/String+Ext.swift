@@ -12,7 +12,16 @@ import SwifterSwift
 public extension String {
     
     static func themeStr() -> String {
-        return "#4A90E2"
+        
+        let theme = SNTheme.default.theme
+        switch theme  {
+        case .imovie:
+            return "#4A90E2"
+        case .yi:
+            return "#9C86EF"
+        case .other(let colorTheme):
+            return "#\(colorTheme)"
+        }
     }
     
     func regexp() throws -> NSRegularExpression {

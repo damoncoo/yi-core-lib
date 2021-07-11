@@ -45,7 +45,7 @@ public struct WrapMpdel <T> {
     
 }
 
-public protocol WrapTableViewProtocol : class {
+public protocol WrapTableViewProtocol : AnyObject {
     
     func makeRequest(page : NSInteger, limit : NSInteger) -> DataRequest?
     

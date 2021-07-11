@@ -16,7 +16,7 @@ public class QiniuToken : HandyJSON {
     public required init() {}
 }
 
-public protocol QiniuTokenProtocol : class {
+public protocol QiniuTokenProtocol : AnyObject {
     
     func getToken() -> Promise<QiniuToken>    
 }
