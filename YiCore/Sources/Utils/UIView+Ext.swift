@@ -19,6 +19,15 @@ public extension UIView {
         }
     }
     
+    func safeTop() -> ConstraintItem {
+
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.snp.top
+        } else {
+            return self.snp.top
+        }
+    }
+    
     func safeAreaEdges() -> UIEdgeInsets {
         
         if #available(iOS 11.0, *) {
