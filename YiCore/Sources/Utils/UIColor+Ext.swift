@@ -31,6 +31,10 @@ public extension UIColor {
         return UIColor.dynamicColor(color1: UIColor(hexString: "#DDDDDD")!, color2: UIColor(hexString: "#272727")!)
     }
     
+    static var sepColor2 : UIColor {
+        return UIColor.dynamicColor(color1: UIColor(hexString: "#DDDDDD")!, color2: UIColor(hexString: "#444444")!)
+    }
+    
     static var pageBgColor : UIColor {
         return UIColor.dynamicColor(color1: UIColor(hexString: "#FFFFFF")!, color2: UIColor(hexString: "#191919")!)
     }
