@@ -35,5 +35,13 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Yi需要使用您的相册以选择照片</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Yi需要使用您的相册以选择照片</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Yi需要使用您的麦克风以录制</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Yi需要使用您的相机来拍摄照片</string>
 </dict>
 </plist>

@@ -50,4 +50,6 @@ Pod::Spec.new do |s|
   s.dependency 'CRRefresh', '~> 1.1.3'
   s.dependency 'SwifterSwift'
   s.dependency 'SwiftDate', '~> 6.2.0'
+  s.dependency 'ImagePicker'
+
 end

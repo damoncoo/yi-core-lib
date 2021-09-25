@@ -213,19 +213,13 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
     }
 }
 
-open class SNBaseTableViewController: UITableViewController, RouteFatory {
+open class SNBaseTableViewController: SNRouteViewController, UITableViewDelegate, UITableViewDataSource {
     
-    public static func initWithData(data: Dictionary<String, Any>?) -> UIViewController? {
-        return self.init().validate(data: data)
-    }
-    
-    
-    open func validate(data: Dictionary<String, Any>?) -> Self? {
+    public let tableView = UITableView()
+    open override func validate(data: Dictionary<String, Any>?) -> Self? {
         return self
     }
-    
-    public var hideNavigationBar : Bool = false
-        
+            
     deinit {
         print("\(self) deint")
     }
@@ -233,6 +227,7 @@ open class SNBaseTableViewController: UITableViewController, RouteFatory {
     open override func viewDidLoad() {
 
         super.viewDidLoad()
+        self.setup()
         self.tableView.separatorColor = .sepColor
         guard #available(iOS 11.0, *) else {
             self.automaticallyAdjustsScrollViewInsets = false
@@ -242,24 +237,32 @@ open class SNBaseTableViewController: UITableViewController, RouteFatory {
         UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
     }
     
+    func setup()  {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { maker in
+            maker.edges.equalTo(UIEdgeInsets.zero)
+        }
+    }
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
     }
     
-    
     // MARK: - Table view data source
-    open override func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
 
         return 0
     }
 
-    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return  0
     }
     
-    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         return  UITableViewCell()
     }
@@ -267,6 +270,29 @@ open class SNBaseTableViewController: UITableViewController, RouteFatory {
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    }
+    
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                
+    }
+    
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    }
+    
 }
 
 

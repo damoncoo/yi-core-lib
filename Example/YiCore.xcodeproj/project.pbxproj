@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		C784488E26EF96DD00C371BE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C784488D26EF96DD00C371BE /* ImagePicker.swift */; };
 		DA8799DD41DAB989ECC57F8B /* Pods_YiCore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5F96B9690E0374C931237F /* Pods_YiCore_Example.framework */; };
 		FDC2B48C8F81EC288AAE507C /* Pods_YiCore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6A8532A3355A03F856EA43 /* Pods_YiCore_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6B2150DC83140D83BCEF4B9C /* YiCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YiCore.podspec; path = ../YiCore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C784488D26EF96DD00C371BE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E301034F607B654609084FD4 /* Pods-YiCore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiCore_Tests.release.xcconfig"; path = "Target Support Files/Pods-YiCore_Tests/Pods-YiCore_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EB6400ACB91CA8EF0EAA1CDA /* Pods-YiCore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiCore_Example.release.xcconfig"; path = "Target Support Files/Pods-YiCore_Example/Pods-YiCore_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 		607FACD21AFB9204008FA782 /* Example for YiCore */ = {
 			isa = PBXGroup;
 			children = (
+				C784488C26EF96C800C371BE /* Actions */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -146,6 +149,14 @@
 				176BB5AED51889DB9F60C4DB /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C784488C26EF96C800C371BE /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				C784488D26EF96DD00C371BE /* ImagePicker.swift */,
+			);
+			name = Actions;
 			sourceTree = "<group>";
 		};
 		CAAB31D67D02926724AD75BD /* Pods */ = {
@@ -299,6 +310,7 @@
 				"${BUILT_PRODUCTS_DIR}/CRRefresh/CRRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
@@ -322,6 +334,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
@@ -373,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C784488E26EF96DD00C371BE /* ImagePicker.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

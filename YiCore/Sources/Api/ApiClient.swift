@@ -36,11 +36,11 @@ public class ApiClient : SessionRequestProtocol {
     
     public func R<E>(path: String, method: HTTPMethod, data: Parameters?) -> Promise<Response<E>> where E : HandyJSON {
      
-        self.session.R(path: path, method: method, data: data)
+        return self.session.R(path: path, method: method, data: data)
     }
     
     public func R2<E>(request: DataRequest) -> Promise<Response<E>> where E : HandyJSON {
         
-        self.session.R2(request: request)
+        return self.session.R2(request: request)
     }
 }
