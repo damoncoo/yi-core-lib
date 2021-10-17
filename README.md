@@ -21,8 +21,7 @@ pod 'YiCore'
 ```
 
 ## Author
-
-damoncoo@gmail.com, damoncoo@gmail.com
+damoncoo@gmail.com
 
 ## License
 

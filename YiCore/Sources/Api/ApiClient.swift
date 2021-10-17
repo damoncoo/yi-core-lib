@@ -25,13 +25,13 @@ public class ApiClient : SessionRequestProtocol {
     
     public static let shared = ApiClient()
 
-    public func useSession(session : ApiSession)  {
-        self.session = session
+    public func useSession(asession : ApiSession)  {
+        self.session = asession
     }
     
     public func makeRequest(path: String, method: HTTPMethod, data: Parameters?) -> DataRequest {
         
-        self.session.makeRequest(path: path, method: method, data: data)
+        return self.session.makeRequest(path: path, method: method, data: data)
     }
     
     public func R<E>(path: String, method: HTTPMethod, data: Parameters?) -> Promise<Response<E>> where E : HandyJSON {

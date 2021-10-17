@@ -175,7 +175,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         }.catch { (err) in
             
         }.finally {
-            
+            self.footerState = .none
             self.provider?.onDataFresh()
         }
     }

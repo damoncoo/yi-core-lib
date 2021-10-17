@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   s.dependency 'RxCocoa', '~> 5.1.1'
   s.dependency 'Kingfisher'
   s.dependency 'HandyJSON', '~> 5.0.2'
-  s.dependency 'Alamofire', '~> 5.4.0'
+  s.dependency 'Alamofire', '~> 5.4.4'
   s.dependency 'SwCrypt'
   s.dependency 'SwiftyRSA'
   s.dependency 'Qiniu', '~> 8.1.0'
@@ -51,5 +51,4 @@ Pod::Spec.new do |s|
   s.dependency 'SwifterSwift'
   s.dependency 'SwiftDate', '~> 6.2.0'
   s.dependency 'ImagePicker'
-
 end

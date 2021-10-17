@@ -47,9 +47,7 @@ public class ApiSession : NSObject {
     private var queue: DispatchQueue = DispatchQueue(label: "api.session.monitir")
 
     private let session : InternalSession
-    
-    private var requests : [Alamofire.DataRequest] = []
-    
+        
     private let baseUrlAdapter : URLProviderProtocol
     
     private let requestAdapter : Interceptor?
@@ -151,10 +149,7 @@ public class ApiSession : NSObject {
                     p.reject(SNError.commonError("解析错误"))
                 }
                 
-                self.requests.removeAll(request)
             }).resume()
-            
-            self.requests.append(request)
         }
     }
     
