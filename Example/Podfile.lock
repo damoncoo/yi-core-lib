@@ -1,30 +1,36 @@
 PODS:
-  - Alamofire (5.4.0)
+  - ADPhotoKit (1.1.1):
+    - ADPhotoKit/CoreUI (= 1.1.1)
+  - ADPhotoKit/Base (1.1.1)
+  - ADPhotoKit/Core (1.1.1):
+    - ADPhotoKit/Base
+  - ADPhotoKit/CoreUI (1.1.1):
+    - ADPhotoKit/Core
+    - Kingfisher (~> 6.0)
+    - SnapKit
+  - Alamofire (5.4.4)
   - CRRefresh (1.1.3)
   - HandyJSON (5.0.2)
   - HappyDNS (0.3.17)
-  - ImagePicker (3.2.0)
-  - Kingfisher (5.15.7):
-    - Kingfisher/Core (= 5.15.7)
-  - Kingfisher/Core (5.15.7)
-  - PromiseKit (6.13.1):
-    - PromiseKit/CorePromise (= 6.13.1)
-    - PromiseKit/Foundation (= 6.13.1)
-    - PromiseKit/UIKit (= 6.13.1)
-  - PromiseKit/CorePromise (6.13.1)
-  - PromiseKit/Foundation (6.13.1):
+  - Kingfisher (6.3.1)
+  - PromiseKit (6.15.3):
+    - PromiseKit/CorePromise (= 6.15.3)
+    - PromiseKit/Foundation (= 6.15.3)
+    - PromiseKit/UIKit (= 6.15.3)
+  - PromiseKit/CorePromise (6.15.3)
+  - PromiseKit/Foundation (6.15.3):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.13.1):
+  - PromiseKit/UIKit (6.15.3):
     - PromiseKit/CorePromise
   - PryntTrimmerView (4.0.2)
   - Qiniu (8.1.2):
     - HappyDNS (~> 0.3.17)
-  - RxCocoa (5.1.1):
+  - RxCocoa (5.1.3):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.1.1):
+  - RxRelay (5.1.3):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.3)
   - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
   - SwCrypt (5.1.3)
@@ -59,10 +65,10 @@ PODS:
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
   - YiCore (0.1.0):
-    - Alamofire (~> 5.4.0)
+    - ADPhotoKit (~> 1.1.1)
+    - Alamofire (~> 5.4.4)
     - CRRefresh (~> 1.1.3)
     - HandyJSON (~> 5.0.2)
-    - ImagePicker
     - Kingfisher
     - PromiseKit (~> 6.8)
     - Qiniu (~> 8.1.0)
@@ -84,8 +90,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - ImagePicker
-  trunk:
     - Alamofire
     - CRRefresh
     - HandyJSON
@@ -105,24 +109,26 @@ SPEC REPOS:
     - SwifterSwift
     - SwiftyRSA
     - YPImagePicker
+  https://github.com/damoncoo/XYSepc.git:
+    - ADPhotoKit
 
 EXTERNAL SOURCES:
   YiCore:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  ADPhotoKit: 5d2c5044f1eb9e3aa9c4dc96f7d1b1c8590e85be
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CRRefresh: 1415d4ae06837fa7bb064c44f2e102f3ef517044
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   HappyDNS: 848ef73e24f2b0e2752064223ce2dc0dd88900ea
-  ImagePicker: 1d950bbb2422548ed58791b4ec7f42fe42920511
-  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   Qiniu: 227df98daf83303c3684bce92b8dbcf7689c59fe
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
+  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwCrypt: 0d1f951b8a993d6e107f4776ee0d72c1adafd1df
@@ -130,9 +136,9 @@ SPEC CHECKSUMS:
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  YiCore: 6fd55eaa95e6f8480f5102569c8a66f93948cc1d
+  YiCore: 9548a57ee337deb9a886b243b690c299b093e0d0
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 9e81b80f0d95a23158020c6739285389743f87e5
+PODFILE CHECKSUM: e34a2a307f6943b26705a5dab97963bacdf3fc58
 
 COCOAPODS: 1.10.1

@@ -10,7 +10,7 @@ import YPImagePicker
 import PromiseKit
 import HandyJSON
 import Qiniu
-import ImagePicker
+import ADPhotoKit
 
 public class SNAssets: NSObject {
     
@@ -44,29 +44,8 @@ extension Data : DataProtocol {
     }
 }
 
-public class SNAssetsManager : NSObject, ImagePickerDelegate {
+public class SNAssetsManager : NSObject {
     
-    public func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-        let assets = SNAssets()
-        assets.phtos = images
-        self.resolver.fulfill(assets)
-    }
-    
-    public func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePicker.dismiss(animated: true, completion: nil)
-        
-        let assets = SNAssets()
-        assets.phtos = images
-        self.resolver.fulfill(assets)
-    }
-    
-    public func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true, completion: nil)
-        
-        self.resolver.reject(SNError.commonError("User Canceled"))
-    }
-            
     public static let shared = SNAssetsManager()
     
     private var qiniuConf : QNConfiguration!
@@ -90,37 +69,28 @@ public class SNAssetsManager : NSObject, ImagePickerDelegate {
     public func showImagePicker(count : Int = 1 ,video : Bool = false, maxWidth : CGFloat = 1024) -> Promise<SNAssets>  {
         
         let promise = Promise<SNAssets> {p in
-//            var conf = YPImagePickerConfiguration()
-//            conf.library.mediaType = video ? .video : .photo
-//            conf.library.maxNumberOfItems = video ? 0 : count
-//            conf.targetImageSize = .cappedTo(size: maxWidth)
-//
-//            let picker = YPImagePicker(configuration: conf)
-//            picker.didFinishPicking { [unowned picker] items, canceled in
-//
-//                picker.dismiss(animated: false) {
-//
-//                }
-//                if canceled {
-//                    p.reject(SNError.commonError("取消选择"))
-//                } else {
-//                    let asset = SNAssets()
-//                    for  item  in items {
-//                        switch item {
-//                        case .photo(let photo):
-//                            asset.phtos.append(photo)
-//                        case .video(let video):
-//                            asset.videos.append(video)
-//                        }
-//                    }
-//                    p.fulfill(asset)
-//                }
-//            }
-            self.resolver = p
 
-            let imagePickerController = ImagePickerController()
-            imagePickerController.delegate = self
-            UIViewController.visibleNavigationController()!.present(imagePickerController, animated: true, completion: nil)
+            self.resolver = p
+            let fromViewController = UIViewController.visibleNavigationController()!
+            
+            ADPhotoKitUI
+                .imagePicker(present: fromViewController,
+                             style: .normal,
+                             selected:  { [weak self] (assets, value) in
+                                
+                                let images: [UIImage] = assets.filter { item in
+                                    return item.result?.image != nil
+                                }.map { item in
+                                    return item.result!.image!
+                                }
+                                
+                                let assets = SNAssets()
+                                assets.phtos = images
+                                self?.resolver.fulfill(assets)
+                             },
+                             canceled: {
+                                self.resolver.reject(SNError.commonError("User Canceled"))
+                             })            
         }
         return promise
     }
