@@ -1,10 +1,10 @@
 PODS:
-  - ADPhotoKit (1.1.1):
-    - ADPhotoKit/CoreUI (= 1.1.1)
-  - ADPhotoKit/Base (1.1.1)
-  - ADPhotoKit/Core (1.1.1):
+  - ADPhotoKit (1.1.2):
+    - ADPhotoKit/CoreUI (= 1.1.2)
+  - ADPhotoKit/Base (1.1.2)
+  - ADPhotoKit/Core (1.1.2):
     - ADPhotoKit/Base
-  - ADPhotoKit/CoreUI (1.1.1):
+  - ADPhotoKit/CoreUI (1.1.2):
     - ADPhotoKit/Core
     - Kingfisher (~> 6.0)
     - SnapKit
@@ -65,7 +65,7 @@ PODS:
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
   - YiCore (0.1.0):
-    - ADPhotoKit (~> 1.1.1)
+    - ADPhotoKit (= 1.1.2)
     - Alamofire (~> 5.4.4)
     - CRRefresh (~> 1.1.3)
     - HandyJSON (~> 5.0.2)
@@ -117,7 +117,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ADPhotoKit: 5d2c5044f1eb9e3aa9c4dc96f7d1b1c8590e85be
+  ADPhotoKit: 9495f253dc4faabc543a236e6aa988c8e915d79b
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CRRefresh: 1415d4ae06837fa7bb064c44f2e102f3ef517044
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
@@ -136,7 +136,7 @@ SPEC CHECKSUMS:
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  YiCore: 9548a57ee337deb9a886b243b690c299b093e0d0
+  YiCore: 04f4dd9ac6b850f44d6ccd37a1ea68cc00598dd9
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
 PODFILE CHECKSUM: e34a2a307f6943b26705a5dab97963bacdf3fc58
