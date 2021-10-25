@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YiCore'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'YiCore is a suite of tools for Yi app.'
 
   s.description      = <<-DESC
@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'QuartzCore', 'UIKit'
-  s.dependency 'YPImagePicker'
   s.dependency 'SnapKit', '~> 5.0.0'
   s.dependency 'PromiseKit', '~> 6.8'
   s.dependency 'RxSwift', '~> 5.1.1'
