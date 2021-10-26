@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import YPImagePicker
 import PromiseKit
 import HandyJSON
 import Qiniu

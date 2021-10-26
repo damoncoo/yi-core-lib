@@ -1,10 +1,10 @@
 PODS:
-  - ADPhotoKit (1.1.2):
-    - ADPhotoKit/CoreUI (= 1.1.2)
-  - ADPhotoKit/Base (1.1.2)
-  - ADPhotoKit/Core (1.1.2):
+  - ADPhotoKit (1.1.3):
+    - ADPhotoKit/CoreUI (= 1.1.3)
+  - ADPhotoKit/Base (1.1.3)
+  - ADPhotoKit/Core (1.1.3):
     - ADPhotoKit/Base
-  - ADPhotoKit/CoreUI (1.1.2):
+  - ADPhotoKit/CoreUI (1.1.3):
     - ADPhotoKit/Core
     - Kingfisher (~> 6.0)
     - SnapKit
@@ -22,7 +22,6 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.15.3):
     - PromiseKit/CorePromise
-  - PryntTrimmerView (4.0.2)
   - Qiniu (8.1.2):
     - HappyDNS (~> 0.3.17)
   - RxCocoa (5.1.3):
@@ -32,7 +31,6 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.3)
   - SnapKit (5.0.1)
-  - SteviaLayout (4.7.3)
   - SwCrypt (5.1.3)
   - SwiftDate (6.2.0)
   - Swifter (1.5.0)
@@ -64,8 +62,8 @@ PODS:
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
-  - YiCore (0.1.0):
-    - ADPhotoKit (= 1.1.2)
+  - YiCore (0.1.2):
+    - ADPhotoKit (= 1.1.3)
     - Alamofire (~> 5.4.4)
     - CRRefresh (~> 1.1.3)
     - HandyJSON (~> 5.0.2)
@@ -80,10 +78,6 @@ PODS:
     - Swifter (~> 1.5.0)
     - SwifterSwift
     - SwiftyRSA
-    - YPImagePicker
-  - YPImagePicker (4.5.0):
-    - PryntTrimmerView (~> 4.0.2)
-    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - YiCore (from `../`)
@@ -96,19 +90,16 @@ SPEC REPOS:
     - HappyDNS
     - Kingfisher
     - PromiseKit
-    - PryntTrimmerView
     - Qiniu
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
-    - SteviaLayout
     - SwCrypt
     - SwiftDate
     - Swifter
     - SwifterSwift
     - SwiftyRSA
-    - YPImagePicker
   https://github.com/damoncoo/XYSepc.git:
     - ADPhotoKit
 
@@ -117,27 +108,24 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ADPhotoKit: 9495f253dc4faabc543a236e6aa988c8e915d79b
+  ADPhotoKit: 091b1399bc4871c7c64636dedea6e736b50c9e90
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CRRefresh: 1415d4ae06837fa7bb064c44f2e102f3ef517044
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   HappyDNS: 848ef73e24f2b0e2752064223ce2dc0dd88900ea
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
-  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   Qiniu: 227df98daf83303c3684bce92b8dbcf7689c59fe
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwCrypt: 0d1f951b8a993d6e107f4776ee0d72c1adafd1df
   SwiftDate: d117c3eb6beed72e47d3f4d1e3bc63fa1e66d7c3
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  YiCore: 04f4dd9ac6b850f44d6ccd37a1ea68cc00598dd9
-  YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
+  YiCore: fdc558668781eef9f050748962442acda4888dcf
 
 PODFILE CHECKSUM: e34a2a307f6943b26705a5dab97963bacdf3fc58
 
