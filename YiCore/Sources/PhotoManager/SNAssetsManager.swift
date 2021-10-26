@@ -16,13 +16,6 @@ public class SNAssets: NSObject {
     public var phtos  = [UIImage]()
 }
 
-extension YPMediaPhoto : SNMultiImage {
-
-    public func image() -> UIImage {
-        return self.image
-    }
-}
-
 public protocol DataProtocol {
     
     func toData() -> Data?
