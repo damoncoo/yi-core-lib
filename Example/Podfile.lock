@@ -62,7 +62,7 @@ PODS:
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
-  - YiCore (0.1.2):
+  - YiCore (0.1.3):
     - ADPhotoKit (= 1.1.3)
     - Alamofire (~> 5.4.4)
     - CRRefresh (~> 1.1.3)
@@ -125,7 +125,7 @@ SPEC CHECKSUMS:
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  YiCore: fdc558668781eef9f050748962442acda4888dcf
+  YiCore: c1e6e14c3dc555d1a2627c06b0264c4180edbde1
 
 PODFILE CHECKSUM: e34a2a307f6943b26705a5dab97963bacdf3fc58
 

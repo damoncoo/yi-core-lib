@@ -68,6 +68,7 @@ public class SNAssetsManager : NSObject {
             ADPhotoKitUI
                 .imagePicker(present: fromViewController,
                              style: .normal,
+                             params: [.imageCount(min: 1, max: count), .maxCount(max: count)],
                              selected:  { [weak self] (assets, value) in
                                 
                                 let images: [UIImage] = assets.filter { item in
@@ -76,12 +77,17 @@ public class SNAssetsManager : NSObject {
                                     return item.result!.image!
                                 }
                                 
+                                if images.count == 0 {
+                                    self?.resolver.reject(SNError.commonError("Not selecting a phto"))
+                                    return
+                                }
+                                
                                 let assets = SNAssets()
                                 assets.phtos = images
                                 self?.resolver.fulfill(assets)
                              },
                              canceled: {
-                                self.resolver.reject(SNError.commonError("User Canceled"))
+                                self.resolver.reject(SNError.commonError("User canceled"))
                              })            
         }
         return promise
