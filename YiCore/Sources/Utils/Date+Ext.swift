@@ -21,24 +21,24 @@ public extension Date {
     func week() -> String {
         let myWeekday: Int = (Calendar.current as NSCalendar).components([NSCalendar.Unit.weekday], from: self).weekday!
         switch myWeekday {
-        case 0:
-            return "周日"
         case 1:
-            return "周一"
+            return "周日"
         case 2:
-            return "周二"
+            return "周一"
         case 3:
-            return "周三"
+            return "周二"
         case 4:
-            return "周四"
+            return "周三"
         case 5:
-            return "周五"
+            return "周四"
         case 6:
+            return "周五"
+        case 7:
             return "周六"
         default:
             break
         }
-        return "未取到数据"
+        return ""
     }
     
     static func messageAgoSinceDate(_ date: Date) -> String {
