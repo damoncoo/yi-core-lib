@@ -141,7 +141,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
             self.headerState = .enable(enabled: true)
         }
         
-        for item in self.provider!.registerCells() {
+        for item in self.provider?.registerCells() ?? [] {
             if item.isNib {
                 self.tableView?.register(UINib(nibName: item.nib!, bundle: Bundle.main), forCellReuseIdentifier: item.reuseId)
             } else {
@@ -183,7 +183,12 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
     func fetchItems() -> Promise<Response<T>> {
         return Promise<Response<T>> { p in
             
-            let promise =  ApiClient.shared.R2(request: self.provider!.makeRequest(page: self.page, limit: self.limit)!) as Promise<Response<T>>
+            let request = self.provider?.makeRequest(page: self.page, limit: self.limit)
+            guard let request = request else {
+                return p.reject(SNError.commonError("请求失败"))
+            }
+            
+            let promise =  ApiClient.shared.R2(request: request) as Promise<Response<T>>
             promise.done {(res) in
                 
                 self.hasMore = res.page?.page_count ?? 0 > self.page
@@ -229,11 +234,10 @@ open class SNBaseTableViewController: SNRouteViewController, UITableViewDelegate
         super.viewDidLoad()
         self.setup()
         self.tableView.separatorColor = .sepColor
-        guard #available(iOS 11.0, *) else {
-            self.automaticallyAdjustsScrollViewInsets = false
-            return
+        
+        if #available(iOS 15, *) {
+            self.tableView.sectionHeaderTopPadding = 0
         }
-
         UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
     }
     
