@@ -11,7 +11,7 @@ PODS:
   - Alamofire (5.4.4)
   - CRRefresh (1.1.3)
   - HandyJSON (5.0.2)
-  - HappyDNS (0.3.17)
+  - HappyDNS (1.0.0)
   - Kingfisher (6.3.1)
   - PromiseKit (6.15.3):
     - PromiseKit/CorePromise (= 6.15.3)
@@ -22,8 +22,8 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.15.3):
     - PromiseKit/CorePromise
-  - Qiniu (8.1.2):
-    - HappyDNS (~> 0.3.17)
+  - Qiniu (8.4.0):
+    - HappyDNS (~> 1.0.0)
   - RxCocoa (5.1.3):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -59,9 +59,9 @@ PODS:
   - SwifterSwift/StoreKit (5.2.0)
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
-  - SwiftyRSA (1.5.0):
-    - SwiftyRSA/ObjC (= 1.5.0)
-  - SwiftyRSA/ObjC (1.5.0)
+  - SwiftyRSA (1.7.0):
+    - SwiftyRSA/ObjC (= 1.7.0)
+  - SwiftyRSA/ObjC (1.7.0)
   - YiCore (0.1.3):
     - ADPhotoKit (= 1.1.3)
     - Alamofire (~> 5.4.4)
@@ -69,7 +69,7 @@ PODS:
     - HandyJSON (~> 5.0.2)
     - Kingfisher
     - PromiseKit (~> 6.8)
-    - Qiniu (~> 8.1.0)
+    - Qiniu (~> 8.4.0)
     - RxCocoa (~> 5.1.1)
     - RxSwift (~> 5.1.1)
     - SnapKit (~> 5.0.0)
@@ -112,10 +112,10 @@ SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CRRefresh: 1415d4ae06837fa7bb064c44f2e102f3ef517044
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
-  HappyDNS: 848ef73e24f2b0e2752064223ce2dc0dd88900ea
+  HappyDNS: 288f1be2bcd46ace74f241d4d76c13b8dd33a00c
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
-  Qiniu: 227df98daf83303c3684bce92b8dbcf7689c59fe
+  Qiniu: df5794ac9549e69be616eaf6a390d858a502430b
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
@@ -124,9 +124,9 @@ SPEC CHECKSUMS:
   SwiftDate: d117c3eb6beed72e47d3f4d1e3bc63fa1e66d7c3
   Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
-  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  YiCore: c1e6e14c3dc555d1a2627c06b0264c4180edbde1
+  SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
+  YiCore: 89ea5cc45c79af7c55a8f035b721a62613af558e
 
-PODFILE CHECKSUM: e34a2a307f6943b26705a5dab97963bacdf3fc58
+PODFILE CHECKSUM: e3f4f5d6a4ef5c430c72754964d4e25bf00bb0a4
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

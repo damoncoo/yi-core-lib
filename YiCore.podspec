@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.source           = { git: 'https://github.com/damoncoo/yi-core-lib.git', tag: s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'YiCore/Sources/**/*'
 
@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 5.4.4'
   s.dependency 'SwCrypt'
   s.dependency 'SwiftyRSA'
-  s.dependency 'Qiniu', '~> 8.1.0'
+  s.dependency 'Qiniu', '~> 8.4.0'
   s.dependency 'Swifter', '~> 1.5.0'
   s.dependency 'CRRefresh', '~> 1.1.3'
   s.dependency 'SwifterSwift'
