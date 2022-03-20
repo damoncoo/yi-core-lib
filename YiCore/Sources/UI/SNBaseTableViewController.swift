@@ -270,10 +270,6 @@ open class SNBaseTableViewController: SNRouteViewController, UITableViewDelegate
 
         return  UITableViewCell()
     }
-
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -368,11 +364,7 @@ open class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, 
     open func didSelectRow(item : T) {
         
     }
-    
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+        
     // MARK: WrapTableViewProtocol
     open func registerCells() -> [WrapTableCell] {
         return []

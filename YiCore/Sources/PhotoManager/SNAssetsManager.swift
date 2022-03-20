@@ -68,6 +68,7 @@ public class SNAssetsManager : NSObject {
             ADPhotoKitUI
                 .imagePicker(present: fromViewController,
                              style: .normal,
+                             albumOpts: video ? .default : .allowImage,
                              params: [.imageCount(min: 1, max: count), .maxCount(max: count)],
                              selected:  { [weak self] (assets, value) in
                                 
@@ -77,8 +78,8 @@ public class SNAssetsManager : NSObject {
                                     return item.result!.image!
                                 }
                                 
-                                if images.count == 0 {
-                                    self?.resolver.reject(SNError.commonError("Not selecting a phto"))
+                                if images.count == 0 && video == false {
+                                    self?.resolver.reject(SNError.commonError("Not selecting a photo"))
                                     return
                                 }
                                 

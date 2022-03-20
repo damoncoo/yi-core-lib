@@ -18,10 +18,6 @@ open class SNBaseViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.pageBgColor
     }
-
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     public  override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
