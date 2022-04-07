@@ -19,12 +19,12 @@ open class SNBaseViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.pageBgColor
+        self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
     }
     
     public  override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(self.hideNavigationBar, animated: animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
     }
     
     open func validate(data: Dictionary<String, Any>?) -> Self? {
