@@ -14,12 +14,11 @@ open class SNBaseViewController: UIViewController {
     }
     
     public var hideNavigationBar : Bool = false
-    public var prefersLargeTitles : Bool = false
+    public var largeTitleDisplayMode: UINavigationItem.LargeTitleDisplayMode = .never
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.pageBgColor
-        self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
+        navigationItem.largeTitleDisplayMode = self.largeTitleDisplayMode
     }
     
     public  override func viewWillAppear(_ animated: Bool) {
