@@ -212,6 +212,13 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         return self.fetchItems()
     }
     
+    public func appendItem(item: T) {
+        if self.items == nil {
+            self.items = [T]()
+        }
+        self.items?.append(item)
+    }
+    
     public func reload() {
         self.wrapModel = self.provider?.datamodel()
         self.tableView?.reloadData()
@@ -382,12 +389,10 @@ open class SNWrapTableViewController<T : HandyJSON>: SNBaseTableViewController, 
     open func onDataFreshBefore() {
 
         self.tableViewInfo?.refresh()
-        self.view.showLoading()
     }
     
     open func onDataFresh() {
         
         self.tableView.reloadData()
-        self.view.stopLoading()
     }    
 }
