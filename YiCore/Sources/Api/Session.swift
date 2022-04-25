@@ -10,8 +10,6 @@ import Alamofire
 import PromiseKit
 import HandyJSON
 import CryptoKit
-import SwCrypt
-import SwiftyRSA
 
 public class ApiURL: URLConvertible {
     
