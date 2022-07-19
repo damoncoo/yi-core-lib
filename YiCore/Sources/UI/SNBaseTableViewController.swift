@@ -71,6 +71,8 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
     var items : [T?]?
     var wrapModel : WrapMpdel<Any>?
     
+    public var errors: Error? = nil
+    
     var headerFreshView : CRRefreshHeaderView?
     var footerFreshView : CRRefreshFooterView?
     
@@ -152,6 +154,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         
     public func refresh() {
         self.page = 1
+        self.errors = nil
         
         firstly {
             fetchItems()
@@ -159,7 +162,7 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
         .done { (response) in
             self.items = response.items
         }.catch { (err) in
-            
+            self.errors = err
         }.finally {
             self.headerState = .none
             self.provider?.onDataFresh()
@@ -167,13 +170,15 @@ public class SNTableViewInfo<T : HandyJSON >: NSObject {
     }
     
     public func loadMore() {
+        self.errors = nil
+        
         firstly {
             fetchMoreItems()
         }.done {  (res) in
             self.items = self.items ?? []
             self.items?.append(contentsOf: res.items ?? [])
         }.catch { (err) in
-            
+            self.errors = err
         }.finally {
             self.footerState = .none
             self.provider?.onDataFresh()
