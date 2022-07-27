@@ -55,8 +55,9 @@ public class ApiSession : NSObject {
     public var responseHooker : ResponseHooker?
     
     public init( baseUrlAdapter : URLProviderProtocol,
-          requestAdapter: Interceptor? = nil,
-          responseAdapter: ResponseAdapter? = nil) {
+                 requestAdapter: Interceptor? = nil,
+                 responseAdapter: ResponseAdapter? = nil,
+                 serverTrustManager: ServerTrustManager? = nil) {
          
         self.requestAdapter = requestAdapter
         
@@ -74,7 +75,7 @@ public class ApiSession : NSObject {
                                          startRequestsImmediately: true,
                                          requestQueue: DispatchQueue.main,
                                          serializationQueue: DispatchQueue.main,
-                                         interceptor:self.requestAdapter, serverTrustManager: nil,
+                                         interceptor:self.requestAdapter, serverTrustManager: serverTrustManager,
                                          redirectHandler: nil,
                                          cachedResponseHandler: nil, eventMonitors: [])
     }
